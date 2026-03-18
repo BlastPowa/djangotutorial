@@ -5,11 +5,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-zncw#dys9&gaaze$rnv9++59@+rb9ug5i-ugh5#o8d3tzx#n('
 
-# MUST BE FALSE FOR PRODUCTION [cite: 4]
+# MUST BE FALSE FOR PRODUCTION 
 DEBUG = False
 
-# Allows any Vercel domain to run your site
-ALLOWED_HOSTS = ['*']
+# Allowed hosts for PythonAnywhere and local testing
+ALLOWED_HOSTS = ['BlastPowa.pythonanywhere.com', '127.0.0.1', 'localhost']
 
 INSTALLED_APPS = [
     "polls.apps.PollsConfig", 
@@ -23,7 +23,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # Crucial for Vercel 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -72,9 +71,6 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# Setup for WhiteNoise to serve static files on Vercel 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
