@@ -8,8 +8,8 @@ SECRET_KEY = 'django-insecure-zncw#dys9&gaaze$rnv9++59@+rb9ug5i-ugh5#o8d3tzx#n('
 # MUST BE FALSE FOR PRODUCTION 
 DEBUG = False
 
-# Allowed hosts for PythonAnywhere and local testing
-ALLOWED_HOSTS = ['BlastPowa.pythonanywhere.com', '127.0.0.1', 'localhost']
+# Updated for your specific PythonAnywhere domain
+ALLOWED_HOSTS = ['BlastPowa.pythonanywhere.com']
 
 INSTALLED_APPS = [
     "polls.apps.PollsConfig", 
@@ -71,6 +71,8 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# Add this near the bottom if not already present:
+import os
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'
